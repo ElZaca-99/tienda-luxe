@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LUXE · Ropa & Maquillaje</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo">LUXE<span>.</span></div>
+    <ul class="nav-links">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#categorias">Categorías</a></li>
+      <li><a href="#productos">Productos</a></li>
+      <li><a href="#ofertas">Ofertas</a></li>
+    </ul>
+    <div class="nav-icons">
+      <button class="icon-btn" id="searchBtn" title="Buscar"></button>
+      <button class="icon-btn" id="favBtn" title="Favoritos">♡ <span class="badge" id="favBadge">0</span></button>
+      <button class="icon-btn" id="cartBtn" title="Carrito">🛒 <span class="badge" id="cartBadge">0</span></button>
+      <button class="btn-login" id="btnLogin">Iniciar sesión</button>
+    </div>
+  </nav>
+
+  <!-- BUSCADOR -->
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-box">
+      <input type="text" class="search-input" id="searchInput" placeholder="Buscar productos...">
+      <button class="search-close" id="searchClose">×</button>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero-content">
+      <span class="hero-tag">NUEVA COLECCIÓN 2026</span>
+      <h1>Belleza que <em>inspira</em></h1>
+      <p>Descubre las últimas tendencias en moda y maquillaje. Diseños exclusivos para ti.</p>
+      <button class="btn-primary" onclick="document.getElementById('productos').scrollIntoView({behavior: 'smooth'})">Explorar colección →</button>
+    </div>
+  </section>
+
+  <!-- CATEGORÍAS -->
+  <section class="categorias" id="categorias">
+    <h2 class="section-title">Compra por categoría</h2>
+    <div class="cat-grid">
+      <div class="cat-card" style="background: linear-gradient(135deg,#ffd6e0,#ff9eb5);" data-categoria="1">
+        <h3>Ropa</h3>
+        <p>Camisetas · Pantalones · Vestidos · Zapatos</p>
+        <span>Ver más →</span>
+      </div>
+      <div class="cat-card" style="background: linear-gradient(135deg,#e0c3fc,#8ec5fc);" data-categoria="2">
+        <h3>Maquillaje</h3>
+        <p>Pintalabios · Pintaúñas · Sombras · Bases</p>
+        <span>Ver más →</span>
+      </div>
+      <div class="cat-card" style="background: linear-gradient(135deg,#ffeaa7,#fab1a0);" data-categoria="3">
+        <h3>Complementos</h3>
+        <p>Joyas · Bolsos · Perfumes</p>
+        <span>Ver más →</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTROS -->
+  <section class="productos-filtros" id="productos">
+    <h2 class="section-title">Nuestros Productos</h2>
+    <div class="filtros">
+      <button class="filtro-btn active" data-categoria="todos">Todos</button>
+      <button class="filtro-btn" data-categoria="1">Ropa</button>
+      <button class="filtro-btn" data-categoria="2">Maquillaje</button>
+      <button class="filtro-btn" data-categoria="3">Complementos</button>
+    </div>
+  </section>
+
+  <!-- PRODUCTOS -->
+  <section class="productos-grid-container">
+    <div class="productos-grid" id="productosGrid">
+      <p style="text-align:center; color:#999; grid-column: 1/-1;">Cargando productos...</p>
+    </div>
+  </section>
+
+  <!-- OFERTAS -->
+  <section class="ofertas" id="ofertas">
+    <h2 class="section-title">Ofertas Especiales</h2>
+    <div class="ofertas-grid" id="ofertasGrid">
+      <p style="text-align:center; color:#999; grid-column: 1/-1;">Cargando ofertas...</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>LUXE.</h3>
+        <p>Tu tienda de moda y maquillaje. Belleza que inspira.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Categorías</h4>
+        <ul>
+          <li><a href="#">Ropa</a></li>
+          <li><a href="#">Maquillaje</a></li>
+          <li><a href="#">Complementos</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Ayuda</h4>
+        <ul>
+          <li><a href="#">Envíos</a></li>
+          <li><a href="#">Devoluciones</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Síguenos</h4>
+        <div class="social-links">
+          <span>📘</span>
+          <span>📸</span>
+          <span>🐦</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 LUXE. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- MODAL LOGIN/REGISTRO -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <button class="close" id="closeModal">×</button>
+      <div class="tabs">
+        <button class="tab active" data-tab="login">Iniciar sesión</button>
+        <button class="tab" data-tab="registro">Crear cuenta</button>
+      </div>
+      <form class="form active" id="formLogin">
+        <h2>¡Bienvenida!</h2>
+        <p class="subtitle">Accede a tu cuenta LUXE</p>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Contraseña" required>
+        <button type="submit" class="btn-primary">Entrar</button>
+        <a href="#" class="link">¿Olvidaste tu contraseña?</a>
+      </form>
+      <form class="form" id="formRegistro">
+        <h2>Crea tu cuenta</h2>
+        <p class="subtitle">Únete a la familia LUXE</p>
+        <input type="text" placeholder="Nombre completo" id="regNombre" required>
+        <input type="email" placeholder="Email" id="regEmail" required>
+        <input type="password" placeholder="Contraseña (mín. 6)" id="regPassword" required minlength="6">
+        <label class="checkbox">
+          <input type="checkbox" required> Acepto los términos y condiciones
+        </label>
+        <button type="submit" class="btn-primary">Crear cuenta</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL CARRITO -->
+  <div class="modal" id="cartModal">
+    <div class="modal-content cart-modal">
+      <button class="close" id="closeCart">×</button>
+      <h2>Tu Carrito</h2>
+      <div id="cartItems" class="cart-items">
+        <p style="text-align:center; color:#999; padding: 2rem;">Tu carrito está vacío</p>
+      </div>
+      <div class="cart-total">
+        <span>Total:</span>
+        <span id="cartTotal" class="total-price">$0.00</span>
+      </div>
+      <button class="btn-primary checkout-btn">Finalizar Compra</button>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
